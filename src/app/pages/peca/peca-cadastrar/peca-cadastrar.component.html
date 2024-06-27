@@ -1,0 +1,50 @@
+<mat-card class="card-container">
+  <mat-card-header>
+    <div class="image-container">
+      <img src="https://cdn-icons-png.flaticon.com/512/3574/3574943.png" alt="Carro" class="title-image">
+    </div>
+    <div class="title-container">
+      <mat-card-title class="title">Cadastra Peça</mat-card-title>
+    </div>
+    <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+  </mat-card-header>
+  <button mat-raised-button type="button" style="margin: 30px; width: 100px; height: 50px" (click)="onCancel()">
+    Voltar
+  </button>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Nome da Peça" [(ngModel)]="peca.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Descrição" [(ngModel)]="peca.descricao" name="descricao">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Código Único" [(ngModel)]="peca.serial_number" name="serial_number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Fabricante" [(ngModel)]="peca.fabricante" name="fabricante">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Selecione um carro</mat-label>
+      <mat-select [(ngModel)]="peca.carro.id">
+        <mat-option *ngFor="let carro of carros" [value]="carro.id">
+          {{ carro.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div class="buttons-container">
+      <button mat-raised-button type="button" style="margin: 30px; width: 100px; height: 50px" (click)="limparDados()">
+        Limpar
+      </button>
+      <button mat-raised-button style="margin: 30px; width: 100px; height: 50px" color="primary" (click)="salvarPeca()">
+        Gravar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

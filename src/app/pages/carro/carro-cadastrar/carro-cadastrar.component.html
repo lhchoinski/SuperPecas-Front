@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-header class="header-container">
+    <div class="image-container">
+      <img src="https://i.pinimg.com/originals/7f/91/ce/7f91cea7e30562a16669f2a6207baa46.png" alt="Carro"
+           class="title-image">
+    </div>
+    <div class="title-container">
+      <mat-card-title class="title">Cadastrar Carro</mat-card-title>
+    </div>
+  </mat-card-header>
+  <button mat-raised-button type="button" style="margin:30px;width:100px;height:50px" (click)="onCancel()">
+    Voltar
+  </button>
+  <mat-card-content>
+
+    <mat-form-field>
+      <input matInput placeholder="Nome do Modelo" [(ngModel)]="carro.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Fabricante" [(ngModel)]="carro.fabricante" name="fabricante">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Código Único" [(ngModel)]="carro.serial" name="serial">
+    </mat-form-field>
+    <div class="buttons-container">
+      <button mat-raised-button type="button" style="margin:30px;width:100px;height:50px" (click)="limparDados()">
+        Limpar
+      </button>
+      <button mat-raised-button style="margin:30px;width:100px;height:50px" color="primary" (click)="salvarCarro()">
+        Gravar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+

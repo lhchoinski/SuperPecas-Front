@@ -1,0 +1,49 @@
+<mat-card class="card-container">
+  <mat-card-header class="header-container">
+    <div class="image-container">
+      <img src="https://images.tcdn.com.br/img/img_prod/662641/turbina_auto_avionics_a40_turbo_74_84_pulsativo_com_refluxo_631_1_3703a55f07967dd5484c84bc661872b9.jpg" alt="Peça" class="title-image">
+    </div>
+    <div class="title-container">
+      <mat-card-title class="title">Editar Peça</mat-card-title>
+    </div>
+  </mat-card-header>
+  <button mat-raised-button type="button" style="margin: 30px; width: 100px; height: 50px" (click)="onCancel()">
+    Voltar
+  </button>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Nome da Peça" [(ngModel)]="peca.nome" name="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Descrição" [(ngModel)]="peca.descricao" name="descricao">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Código Único" [(ngModel)]="peca.serial_number" name="serial_number">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Fabricante" [(ngModel)]="peca.fabricante" name="fabricante">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Selecione um carro</mat-label>
+      <mat-select [(ngModel)]="peca.carro.id">
+        <mat-option *ngFor="let carro of carros" [value]="carro.id">
+          {{ carro.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div class="buttons-container">
+      <button mat-raised-button type="button" style="margin: 30px; width: 100px; height: 50px" (click)="limparDados()">
+        Limpar
+      </button>
+      <button mat-raised-button style="margin: 30px; width: 100px; height: 50px" color="primary" (click)="editarPeca()">
+        Gravar
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
